@@ -43,9 +43,6 @@ func replyProtobuf(p pb, w http.ResponseWriter, r *http.Request, multiData data.
 		from := uint32(d.From)
 		until := uint32(d.Until)
 
-		if data.Len() == 0 {
-			continue
-		}
 		totalWritten++
 
 		nextMetric := data.GroupByMetric()
@@ -81,6 +78,9 @@ func replyProtobuf(p pb, w http.ResponseWriter, r *http.Request, multiData data.
 		// HACK: points are only filled when in aggregate mode i.e. data.CommonStep > 0
 		if len(writtenMetrics) != data.AM.Len() && data.CommonStep > 0 {
 			for _, metricName := range data.AM.Series(false) {
+				if _, done := writtenMetrics[metricName]; done {
+					continue
+				}
 				for _, a := range data.AM.Get(metricName) {
 					p.writeBody(writer, a.Target, a.DisplayName, "any", from, until, uint32(data.CommonStep), []point.Point{})
 				}
