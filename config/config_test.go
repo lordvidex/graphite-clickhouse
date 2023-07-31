@@ -12,11 +12,12 @@ import (
 	"testing"
 	"time"
 
-	"github.com/lomik/graphite-clickhouse/limiter"
-	"github.com/lomik/graphite-clickhouse/metrics"
 	"github.com/lomik/zapwriter"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
+
+	"github.com/lomik/graphite-clickhouse/limiter"
+	"github.com/lomik/graphite-clickhouse/metrics"
 )
 
 func TestProcessDataTables(t *testing.T) {
@@ -961,7 +962,7 @@ func TestClickHouse_Validate(t *testing.T) {
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
-			err := clickhouseUrlValidate(tt.ch.URL)
+			_, err := clickhouseURLValidate(tt.ch.URL)
 			if err == nil {
 				if tt.wantErr != "" {
 					t.Errorf("ClickHouse.Validate() error = nil, wantErr %q", tt.wantErr)

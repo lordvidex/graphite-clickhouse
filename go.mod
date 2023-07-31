@@ -10,6 +10,7 @@ require (
 	github.com/go-graphite/protocol v1.0.0
 	github.com/gogo/protobuf v1.3.2
 	github.com/grafana/regexp v0.0.0-20221005093135-b4c2bcb0a4b6
+	github.com/lomik/carbon-clickhouse v0.0.0-00010101000000-000000000000
 	github.com/lomik/graphite-pickle v0.0.0-20171221213606-614e8df42119
 	github.com/lomik/og-rek v0.0.0-20170411191824-628eefeb8d80
 	github.com/lomik/zapwriter v0.0.0-20210624082824-c1161d1eb463
@@ -88,14 +89,16 @@ require (
 	go.uber.org/multierr v1.8.0 // indirect
 	golang.org/x/crypto v0.1.0 // indirect
 	golang.org/x/exp v0.0.0-20221031165847-c99f073a8326 // indirect
-	golang.org/x/net v0.1.0 // indirect
+	golang.org/x/net v0.7.0 // indirect
 	golang.org/x/oauth2 v0.1.0 // indirect
 	golang.org/x/sync v0.1.0 // indirect
-	golang.org/x/sys v0.1.0 // indirect
-	golang.org/x/text v0.4.0 // indirect
+	golang.org/x/sys v0.5.0 // indirect
+	golang.org/x/text v0.7.0 // indirect
 	golang.org/x/time v0.1.0 // indirect
 	google.golang.org/appengine v1.6.7 // indirect
 	google.golang.org/protobuf v1.28.1 // indirect
 	gopkg.in/yaml.v2 v2.4.0 // indirect
 	gopkg.in/yaml.v3 v3.0.1 // indirect
 )
+
+replace github.com/lomik/carbon-clickhouse => github.com/lordvidex/carbon-clickhouse v0.0.0-20230726111832-93bb77dd92f7
